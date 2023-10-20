@@ -51,26 +51,26 @@ async function run() {
 
     //update
 
-    // app.put('/google/:id', async(req, res) =>{
-    //   const id = req.params.id;
-    //   const filter = { _id: new ObjectId(id)}
-    //   const options = {upsert: true};
-    //   const updateProduct = req.body;
-    //   const Product = {
-    //     $set: {
-    //       name: updateProduct.name,
-    //        image: updateProduct.image,
-    //         brand: updateProduct.brand,
-    //          type: updateProduct.type,
-    //          price: updateProduct.price,
-    //          description: updateProduct.description
-    //     }
-    //   }
+    app.put('/google/:id', async(req, res) =>{
+      const id = req.params.id;
+      const filter = { _id: new ObjectId(id)}
+      const options = {upsert: true};
+      const updateProduct = req.body;
+      const Product = {
+        $set: {
+          name: updateProduct.name,
+           image: updateProduct.image,
+            brand: updateProduct.brand,
+             type: updateProduct.type,
+             price: updateProduct.price,
+             description: updateProduct.description
+        }
+      }
 
-    //   const result = await googleProductCollection.updateOne(filter, Product, options);
-    //   res.send(result);
+      const result = await googleProductCollection.updateOne(filter, Product, options);
+      res.send(result);
 
-    // })
+    })
 
     app.get('/google/:id', async(req, res)=>{
       const id = req.params.id;
